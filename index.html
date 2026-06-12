@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <title>Eymen Karadeniz</title>
+    <meta name="description" content="I turn ideas into records. Music production, mixing, mastering, and publishing — built for artists who care." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <!-- ════════════════════════════════════════════════════════════
+         NAVIGATION
+         ════════════════════════════════════════════════════════════ -->
+    <header class="nav">
+      <nav class="nav__links">
+        <a href="#services">HİZMETLER</a>
+        <a href="#about">HAKKIMDA</a>
+        <a href="#work">İŞLERİM</a>
+        <a href="#contact">İLETİŞİM</a>
+      </nav>
+      <a href="#contact" class="nav__cta">İletişime geç</a>
+    </header>
+
+    <main id="smooth-content">
+      <!-- ════════════════════════════════════════════════════════════
+           SECTION 1 — HERO + WAVEFORM SHADER
+           ════════════════════════════════════════════════════════════ -->
+      <section class="hero" id="hero">
+        <div class="hero__inner">
+          <div class="badge" data-hero-anim="badge">
+            <span class="badge__text">Eymen Karadeniz, İzmir</span>
+          </div>
+
+          <h1 class="hero__title" aria-label="Vizyonunu sese dönüştür">
+            <span class="line-mask"><span class="line-inner" data-hero-anim="title">VİZYONUNU</span></span>
+            <span class="line-mask"><span class="line-inner" data-hero-anim="title">SESE DÖNÜŞTÜR</span></span>
+          </h1>
+
+          <p class="hero__sub">
+            <span class="line-mask"><span class="line-inner" data-hero-anim="sub">Fikirlerini sadece demoda bırakma.</span></span>
+            <span class="line-mask"><span class="line-inner" data-hero-anim="sub">Onları kalıcı bir esere dönüştürelim.</span></span>
+          </p>
+
+          <div class="hero__actions" data-hero-anim="cta">
+            <a href="#contact" class="btn btn--solid">Müziğe başlayalım mı?</a>
+          </div>
+          <!-- <p class="hero__meta" data-hero-anim="meta"></p> -->
+        </div>
+
+        <!-- Three.js canvas — placed at the bottom of the hero -->
+        <div class="hero__waveform" data-canvas="hero-waveform"></div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════════
+           SECTION 2 — WHAT I DO
+           ════════════════════════════════════════════════════════════ -->
+      <section class="what-i-do" id="services">
+        <!-- subtle spotlight + noise shader background -->
+        <div class="what-i-do__canvas" data-canvas="what-bg"></div>
+
+        <div class="what-i-do__inner">
+          <h2 class="section-title reveal-text">NELER YAPIYORUM?</h2>
+
+          <div class="section-row" data-what-row>
+            <div class="col-left">
+              <h3 class="col-left__h reveal-text">MÜZİK<br />PRODÜKSİYONU</h3>
+              <p class="col-left__p reveal-text">
+                İLK MELODİDEN SON DÜZENLEMEYE KADAR, VİZYONUNUZU KUSURSUZ BİR SES DENEYİMİNE DÖNÜŞTÜRÜYORUM. ŞARKI YAZIMI, ARANJMAN VE SES TASARIMINDA DETAYLARA TAKINTILI BİR YAKLAŞIMLA, DİNLEYİCİYİ İÇİNE ÇEKEN KALICI ESERLER YARATIYORUM.
+              </p>
+            </div>
+            <div class="col-right" data-split-lines>
+              FROM INITIAL CONCEPT TO FINAL MIX, WE OFFER COMPLETE MUSIC
+              PRODUCTION SERVICES. THIS INCLUDES SONGWRITING, ARRANGEMENT,
+              SOUND DESIGN, BEATMAKING, AND VOCAL PRODUCTION. WE LEVERAGE
+              DECADES OF COLLECTIVE EXPERIENCE TO BRING YOUR UNIQUE VISION TO
+              LIFE, ENSURING EVERY INSTRUMENTAL PART, EVERY BEAT, AND EVERY
+              SONIC ELEMENT ALIGNS PERFECTLY. WHETHER IT'S INDIE POP,
+              ELECTRONIC, OR ACOUSTIC BALLADS, OUR FOCUS IS ON EMOTION AND
+              SONIC EXCELLENCE.
+            </div>
+          </div>
+
+          <div class="section-row" data-what-row>
+            <div class="col-left">
+              <h3 class="col-left__h reveal-text">MIXING &amp;<br />MASTERING</h3>
+              <p class="col-left__p reveal-text">
+                KAYITLARINIZIN GERÇEK GÜCÜNÜ ORTAYA ÇIKARIP ONLARA DERİNLİK VE DENGELİ BİR PARLAKLIK KAZANDIRIYORUM. HASSAS BİR MIX VE KRİTİK MASTERING SÜRECİYLE; MÜZİĞİNİZİN TELEFONDAN DEV SİSTEMLERE KADAR HER YERDE AYNI ETKİYLE, PROFESYONEL STANDARTLARDA DUYULMASINI SAĞLIYORUM.
+              </p>
+            </div>
+            <div class="col-right" data-split-lines>
+              WE TAKE YOUR TRACKS AND BRING THEM TO LIFE WITH PROFESSIONAL
+              MIXING. WE BALANCE ALL THE ELEMENTS, CREATING A PRECISE SONIC
+              SPACE, ENSURING EVERY INSTRUMENT IS CLEAR, AND DELIVERING A MIX
+              THAT TRANSLATES ACROSS ALL SYSTEMS. THIS IS FOLLOWED BY CRITICAL
+              MASTERING, OPTIMIZING THE OVERALL VOLUME, DYNAMICS, AND EQ TO
+              MEET ALL COMMERCIAL STANDARDS FOR PLATFORMS LIKE SPOTIFY, APPLE
+              MUSIC, AND VINYL, ENSURING YOUR SOUND IS PROFESSIONAL AND
+              POWERFUL, WHEREVER IT'S HEARD.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════════
+           GIANT STATEMENT STRIP — left-to-right cross-page tagline
+           ════════════════════════════════════════════════════════════ -->
+      <section class="statement" aria-label="Made to last">
+        <h2 class="statement__text reveal-text">MADE<br />TO<br />LAST.</h2>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════════
+           SECTION 3 — HAND + CD (3D) and horizontal pinned player
+           ════════════════════════════════════════════════════════════ -->
+      <section class="hand-section" id="work">
+        <div class="hand-stage">
+          <div class="hand-stage__canvas" data-canvas="hand-scene"></div>
+
+          <!-- DOM overlay synced to the 3D hand: play platform + metadata -->
+          <div class="hand-overlay">
+            <!-- Brushed-metal foreground platform; the button itself
+                 travels on click while the platform stays anchored. -->
+            <div class="play-platform" id="play-platform">
+              <div class="play-platform__pedestal" aria-hidden="true"></div>
+              <button class="play-btn" id="hand-play" aria-label="Play featured track">
+                <span class="play-btn__glow" aria-hidden="true"></span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="hand-track">
+              <div class="hand-track__name">Back To Her Men</div>
+              <div class="hand-track__artist">Eymen Karadeniz</div>
+              <div class="hand-track__wave" data-canvas="active-wave"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HORIZONTAL PINNED PLAYER -->
+        <div class="h-pin" id="h-pin">
+          <div class="h-pin__track" id="h-pin-track">
+            <!-- Slides built in JS but seeded here for SEO -->
+            <article class="song-slide" data-track="0">
+              <div class="song-slide__art"></div>
+              <div class="song-slide__body">
+                <div class="song-slide__title">Back To Her Men</div>
+                <div class="song-slide__artist">Eymen Karadeniz</div>
+                <div class="song-slide__wave" data-wave></div>
+                <div class="song-slide__controls">
+                  <span class="time time--current">0:00</span>
+                  <button class="ctrl ctrl--prev" aria-label="Previous">◀◀</button>
+                  <button class="ctrl ctrl--play" data-play="0" aria-label="Play">▶</button>
+                  <button class="ctrl ctrl--next" aria-label="Next">▶▶</button>
+                  <span class="time time--total">3:29</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="song-slide" data-track="1">
+              <div class="song-slide__art"></div>
+              <div class="song-slide__body">
+                <div class="song-slide__title">Midnight Bloom</div>
+                <div class="song-slide__artist">Eymen Karadeniz</div>
+                <div class="song-slide__wave" data-wave></div>
+                <div class="song-slide__controls">
+                  <span class="time time--current">0:00</span>
+                  <button class="ctrl ctrl--prev" aria-label="Previous">◀◀</button>
+                  <button class="ctrl ctrl--play" data-play="1" aria-label="Play">▶</button>
+                  <button class="ctrl ctrl--next" aria-label="Next">▶▶</button>
+                  <span class="time time--total">4:12</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="song-slide" data-track="2">
+              <div class="song-slide__art"></div>
+              <div class="song-slide__body">
+                <div class="song-slide__title">Ash & Velvet</div>
+                <div class="song-slide__artist">Eymen Karadeniz</div>
+                <div class="song-slide__wave" data-wave></div>
+                <div class="song-slide__controls">
+                  <span class="time time--current">0:00</span>
+                  <button class="ctrl ctrl--prev" aria-label="Previous">◀◀</button>
+                  <button class="ctrl ctrl--play" data-play="2" aria-label="Play">▶</button>
+                  <button class="ctrl ctrl--next" aria-label="Next">▶▶</button>
+                  <span class="time time--total">3:48</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="song-slide" data-track="3">
+              <div class="song-slide__art"></div>
+              <div class="song-slide__body">
+                <div class="song-slide__title">Glass Cathedral</div>
+                <div class="song-slide__artist">Eymen Karadeniz</div>
+                <div class="song-slide__wave" data-wave></div>
+                <div class="song-slide__controls">
+                  <span class="time time--current">0:00</span>
+                  <button class="ctrl ctrl--prev" aria-label="Previous">◀◀</button>
+                  <button class="ctrl ctrl--play" data-play="3" aria-label="Play">▶</button>
+                  <button class="ctrl ctrl--next" aria-label="Next">▶▶</button>
+                  <span class="time time--total">5:01</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ARCHIVE GRID -->
+        <div class="archive">
+          <h2 class="section-title reveal-text">İŞLERİM</h2>
+          <div class="archive__grid" id="archive-grid"></div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════════
+           SECTION 4 — ABOUT, FAQ, CTA
+           ════════════════════════════════════════════════════════════ -->
+      <section class="about" id="about">
+        <h2 class="section-title reveal-text">HAKKIMDA</h2>
+        <div class="about__grid">
+          <div class="about__col">
+            <article class="about__item reveal-text">
+              <span class="about__num">1</span>
+              <h3>VİZYON</h3>
+              <p>
+                Her şarkının çıkış noktası başka. Önce o fikrin ne anlatmak
+                istediğini netleştiriyor, sonra sesleri o duyguya hizmet edecek
+                şekilde kuruyorum.
+              </p>
+            </article>
+            <article class="about__item reveal-text">
+              <span class="about__num">3</span>
+              <h3>GÜVEN</h3>
+              <p>
+                Birlikte üretirken aklında soru kalmaması benim için önemli.
+                Süreci açık tutar, zamanlamaya sadık kalır ve ne söz verdiysem
+                onu eksiksiz teslim ederim.
+              </p>
+            </article>
+          </div>
+
+          <div class="about__portrait reveal-text">
+            <img src="./public/assets/eymen.png" />
+          </div>
+
+          <div class="about__col">
+            <article class="about__item reveal-text">
+              <span class="about__num">2</span>
+              <h3>İŞÇİLİK</h3>
+              <p>
+                Küçük detaylar parçanın hissini tamamen değiştirir. Sound
+                design'dan son master dokunuşuna kadar her aşamada aceleye
+                kaçmadan, parçanın hakkını vererek çalışırım.
+              </p>
+            </article>
+            <article class="about__item reveal-text">
+              <span class="about__num">4</span>
+              <h3>ENERJİ</h3>
+              <p>
+                İyi prodüksiyon sadece temiz duyulmaz, dinleyeni yakalar. Benim
+                odağım da ilk anda bağ kuran, enerjisini kaybetmeyen ve tekrar
+                dinleme isteği bırakan işler çıkarmak.
+              </p>
+            </article>
+          </div>
+        </div>
+        <div class="about__cta reveal-text">
+          <a href="#contact" class="btn btn--solid">Başlayalım</a>
+        </div>
+      </section>
+
+      <section class="faq">
+        <div class="faq__divider"></div>
+        <h2 class="faq__title reveal-text">AKLINDA SORU MU VAR?</h2>
+        <div class="faq__list" id="faq-list">
+          <button class="faq__item" data-faq>
+            <span class="faq__q">REVİZE HAKKI VAR MI?</span>
+            <span class="faq__icon" aria-hidden="true">↓</span>
+            <div class="faq__a">
+              Evet. Her işte iki revize turu dahil. Parçanın yönünü birlikte
+              netleştirip son haline içimize sinerek getiriyoruz.
+            </div>
+          </button>
+          <button class="faq__item" data-faq>
+            <span class="faq__q">TESLİMDE NELER ALIYORUM?</span>
+            <span class="faq__icon" aria-hidden="true">↓</span>
+            <div class="faq__a">
+              Yayına hazır WAV ve MP3 master, ihtiyaç varsa stem dosyaları ve
+              instrumental versiyon teslim edilir. Platformlara yüklemeye hazır
+              şekilde alırsın.
+            </div>
+          </button>
+          <button class="faq__item" data-faq>
+            <span class="faq__q">BİR PROJE NE KADAR SÜRER?</span>
+            <span class="faq__icon" aria-hidden="true">↓</span>
+            <div class="faq__a">
+              Single işler genelde iki-üç hafta içinde tamamlanır. EP veya
+              albüm gibi daha geniş projelerde takvimi başlamadan birlikte
+              netleştiriyoruz.
+            </div>
+          </button>
+          <button class="faq__item" data-faq>
+            <span class="faq__q">HANGİ TARZLARDA ÇALIŞIYORSUN?</span>
+            <span class="faq__icon" aria-hidden="true">↓</span>
+            <div class="faq__a">
+              Pop, alternatif, indie, R&amp;B ve elektronik işlerde yoğun
+              çalışıyorum. Türden çok parçanın fikri ve hissi benim için önemli.
+            </div>
+          </button>
+          <button class="faq__item" data-faq>
+            <span class="faq__q">SÜREÇ NASIL İLERLİYOR?</span>
+            <span class="faq__icon" aria-hidden="true">↓</span>
+            <div class="faq__a">
+              Önce fikri ve referansları konuşuyoruz. Ardından demo,
+              prodüksiyon, mix ve master aşamalarında düzenli dinletilerle
+              ilerliyoruz.
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <section class="cta" id="contact">
+        <div class="cta__canvas" data-canvas="cta-light"></div>
+        <div class="cta__inner">
+          <div class="cta__rule"></div>
+          <h2 class="cta__title reveal-text">İLETİŞİME<br />GEÇELİM</h2>
+          <a href="mailto:hello@eymenkaradeniz.com" class="btn btn--solid reveal-text">Başlayalım</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ════════════════════════════════════════════════════════════
+         FOOTER
+         ════════════════════════════════════════════════════════════ -->
+    <footer class="footer">
+      <div class="footer__canvas"></div>
+      <div class="footer__inner">
+        <div class="footer__top">
+          <div class="footer__left">
+            <a class="footer__email" href="mailto:hello@eymenkaradeniz.com">hello@eymenkaradeniz.com</a>
+            <p class="footer__tagline">
+              Hayalinizdeki parçayı<br />yaratalım.
+            </p>
+          </div>
+          <ul class="footer__nav">
+            <li><a href="#work">İŞLERİM</a></li>
+            <li><a href="#services">NELER YAPIYORUM?</a></li>
+            <li><a href="#about">HAKKIMDA</a></li>
+            <li><a href="#contact">İLETİŞİM</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__brand">EYMEN KARADENİZ<span>.</span></div>
+        <div class="footer__legal">©<br />TÜM HAKLARI SAKLADIR.</div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
