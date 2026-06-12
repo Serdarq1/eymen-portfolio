@@ -27,7 +27,11 @@ const lenis = new Lenis({
   duration: 1.15,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   smoothWheel: true,
-  smoothTouch: false
+  smoothTouch: false,
+  // Touch devices: hand scrolling fully back to the browser. Otherwise
+  // Lenis tries to intercept touchmove and the page feels "sticky."
+  syncTouch: false,
+  touchMultiplier: 1.5
 });
 window.__lenis = lenis;
 
@@ -202,9 +206,19 @@ const hTrack = document.getElementById('h-pin-track');
 
 if (hPin && hTrack) {
   let tween;
+  const isDesktop = () => window.matchMedia('(min-width: 980px)').matches;
 
   const setup = () => {
     if (tween) { tween.scrollTrigger?.kill(); tween.kill(); tween = null; }
+
+    // On mobile + tablet the pinned-scrub pattern hijacks vertical
+    // scrolling for a full screen-width × N-slides worth of travel,
+    // which reads as "scroll stuck." Skip the pin there and let the
+    // CSS fallback (overflow-x: auto on .h-pin) handle slide navigation.
+    if (!isDesktop()) {
+      gsap.set(hTrack, { clearProps: 'x,transform' });
+      return;
+    }
 
     const distance = hTrack.scrollWidth - window.innerWidth;
     if (distance <= 0) return;

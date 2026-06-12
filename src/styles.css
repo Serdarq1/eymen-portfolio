@@ -445,11 +445,13 @@ img {
   letter-spacing: -0.04em;
   line-height: 0.85;
   color: #f5f5f5;
-  /* Each word is its own line — the whole block reads
-     edge-to-edge of the page. */
+  /* Each word is on its own line — handled by <br /> in the HTML.
+     Keep word-break "normal" so we never hyphenate mid-word (which
+     was producing "MAD\E\TO\LAST\." on narrow phones). */
   font-size: clamp(120px, 22vw, 360px);
-  word-break: break-word;
-  overflow-wrap: break-word;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
 }
 
 /* Wrappers injected by the split-lines pass. */
@@ -774,16 +776,16 @@ img {
     max-width: 100%;
   }
 
-  /* MADE TO LAST — pump the type up so it reads edge-to-edge and
-     keeps the dramatic editorial scale it has on desktop. The desktop
-     clamp() floors at 120px which still leaves headroom on phones. */
+  /* MADE TO LAST — keep dramatic scale but cap so the widest word
+     ("LAST.") actually fits in the viewport. Previously 34vw made
+     "LAST." overflow and the browser hyphenated it. */
   .statement {
     padding: 56px 14px;
   }
   .statement__text {
-    font-size: clamp(112px, 34vw, 220px);
-    letter-spacing: -0.05em;
-    line-height: 0.82;
+    font-size: clamp(80px, 24vw, 140px);
+    letter-spacing: -0.04em;
+    line-height: 0.85;
   }
 
   .faq {
@@ -843,6 +845,64 @@ img {
 
   .hand-track__name {
     font-size: 22px;
+  }
+
+  /* ----- FOOTER (phone) ----- */
+  .footer {
+    padding: 72px 20px 40px;
+  }
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-bottom: 48px;
+  }
+  .footer__kicker {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .footer__email {
+    font-size: clamp(26px, 7vw, 36px);
+    margin-bottom: 18px;
+    word-break: break-all;       /* the email is long, allow break */
+  }
+  .footer__tagline {
+    font-size: 15px;
+    max-width: 100%;
+  }
+  /* The nav pills go from a vertical stack on desktop to a wrapped
+     horizontal row on phone — cheaper vertically. */
+  .footer__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .footer__nav a {
+    padding: 10px 18px;
+    font-size: 11.5px;
+    min-width: 0;
+  }
+  .footer__form {
+    margin-bottom: 56px;
+    max-width: 100%;
+  }
+  .footer__form label {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .footer__brand {
+    font-size: clamp(40px, 14vw, 80px);
+    letter-spacing: -0.02em;
+    margin-top: 16px;
+  }
+  /* Pull legal out of absolute positioning so it doesn't overlap
+     with the giant brand wordmark above it. */
+  .footer__legal {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    text-align: left;
+    margin-top: 16px;
+    font-size: 10px;
   }
 }
 
@@ -1610,6 +1670,25 @@ img {
     height: auto;
   }
   .footer__top { grid-template-columns: 1fr; }
+
+  /* Horizontal player: pin disabled on mobile/tablet (see main.js).
+     Become a native horizontal-scroll band so users can swipe
+     through slides without the page locking. */
+  .h-pin {
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .h-pin__track {
+    transform: none !important;
+  }
+  .song-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    min-height: 100vh;
+  }
 }
 
 /* ============================================================
@@ -1638,11 +1717,15 @@ img {
     letter-spacing: 0.04em;
   }
 
-  /* HERO — no more 130vh tower; auto-size to content + a sane wave. */
+  /* HERO — no more 130vh tower, but still fill at least one viewport
+     so the next section doesn't peek through at the bottom. */
   .hero {
     height: auto;
-    min-height: auto;
-    padding: 96px 18px 0;
+    min-height: 100vh;
+    padding: 96px 18px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .hero__inner {
     padding-bottom: 0;
@@ -1677,9 +1760,12 @@ img {
   }
 }
 
-/* Below ~420px the link row gets too crowded — collapse to just the CTA. */
-@media (max-width: 420px) {
-  .nav__links { display: none; }
+/* Tiny phones: keep links visible but shrink everything more so all
+   four labels + the CTA actually fit on a 360–375 px screen. */
+@media (max-width: 480px) {
+  .nav { padding: 10px 12px; gap: 8px; }
+  .nav__links { gap: 10px; font-size: 10.5px; letter-spacing: 0.01em; }
+  .nav__cta { padding: 6px 12px; font-size: 10.5px; }
 }
 
 /* ============================================================
