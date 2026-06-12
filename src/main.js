@@ -222,6 +222,18 @@ if (hPin && hTrack) {
     // CSS fallback (overflow-x: auto on .h-pin) handle slide navigation.
     if (!isDesktop()) {
       gsap.set(hTrack, { clearProps: 'x,transform' });
+
+      // Still expose __goToPinnedTrack so the Next/Prev controls in
+      // uiController can scroll the carousel horizontally on mobile.
+      // The .h-pin element becomes a native horizontal scroller via
+      // CSS at this breakpoint, so .scrollTo() works directly on it.
+      window.__goToPinnedTrack = (index) => {
+        const slideWidth = hPin.clientWidth;
+        hPin.scrollTo({
+          left: index * slideWidth,
+          behavior: 'smooth'
+        });
+      };
       return;
     }
 

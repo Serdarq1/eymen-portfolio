@@ -890,19 +890,24 @@ img {
     margin-bottom: 12px;
   }
   .footer__brand {
-    font-size: clamp(40px, 14vw, 80px);
+    /* "Eymen Karadeniz" is 15 chars — at 14vw it overflows and wrapped
+       into the legal line. Cap smaller so it fits on one line on phones. */
+    font-size: clamp(28px, 8vw, 48px);
     letter-spacing: -0.02em;
-    margin-top: 16px;
+    line-height: 1.05;
+    margin-top: 12px;
+    word-break: keep-all;
   }
   /* Pull legal out of absolute positioning so it doesn't overlap
-     with the giant brand wordmark above it. */
+     with the brand wordmark above it. Generous margin = no collision. */
   .footer__legal {
     position: relative;
     right: auto;
     bottom: auto;
     text-align: left;
-    margin-top: 16px;
+    margin-top: 28px;
     font-size: 10px;
+    line-height: 1.5;
   }
 }
 
@@ -1679,7 +1684,14 @@ img {
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
+    /* `proximity` snaps when close, instead of hard-latching on every
+       gesture — feels much smoother and stops the "stuck" sensation. */
+    scroll-snap-type: x proximity;
+    /* Prevent vertical gestures inside this section from being absorbed
+       — they propagate to the page so the user can keep scrolling down. */
+    overscroll-behavior-y: auto;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
   }
   .h-pin__track {
     transform: none !important;
