@@ -12,11 +12,16 @@
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { inject } from '@vercel/analytics';
 
 import { audio } from './audioManager.js';
 import { initFaq, initHorizontalPlayer, initArchive } from './uiController.js';
 
 import { HeroWaveform }      from './webgl/HeroWaveform.js';
+
+// Vercel Analytics — fire-and-forget; auto-detects pageviews.
+// Runs on every deployment (production + previews).
+inject();
 
 gsap.registerPlugin(ScrollTrigger);
 
